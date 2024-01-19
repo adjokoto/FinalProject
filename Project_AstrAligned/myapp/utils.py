@@ -1,9 +1,7 @@
 from .models import ZodiacSign, Components
+from django.shortcuts import render
 
-
-def compare_sign_traits(sign1, sign2):
-    sign_one = ZodiacSign.objects.get(id=sign1)
-    sign_two = ZodiacSign.objects.get(id=sign2)
+def compare_sign_components(sign_one, sign_two):
 
     # Get components for both signs
     components1 = Components.objects.filter(zodiac_sign=sign_one)

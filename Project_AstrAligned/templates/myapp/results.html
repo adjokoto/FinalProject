@@ -9,8 +9,19 @@
 </head>
 <body>
 
-<h1>Age Difference:</h1>
-<p>{{ age_difference }}</p>
+<h1>Your Compatability Results</h1>
+
+{% if common_components %}
+    <h2>Component Compatibility: {{ component_match }}%</h2>
+    <h3>Common Components:</h3>
+    <ul>
+        {% for component in common_components %}
+            <li>{{ component }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No common traits found.</p>
+{% endif %}
 
 </body>
 </html>
