@@ -1,6 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from django.urls import reverse
 
 from . import models
@@ -20,10 +19,10 @@ def register(request):
     if form.is_valid():
         new_user = form.save()
         print(request)
-        dob = request.POST.get('dob')
+        dob = request.POST["dob"]
         print("dob")
         print(dob)
-        acct_holder = models.AccountHolder(
+        acct_holder = AccountHolder(
             user=new_user,
             date_of_birth=dob,
         )
