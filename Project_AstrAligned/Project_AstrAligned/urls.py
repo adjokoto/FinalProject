@@ -20,7 +20,7 @@ from myapp import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', views.home, name="home"),
-    path('register/', views.register, name='register'),
-    path('results/', views.component_compat_view, name='results'),
+    path('home/', views.home, name="home"),
+    path('', views.register, name='register'),
+    path('results/', views.compatability_view, name='results'),
 ]
