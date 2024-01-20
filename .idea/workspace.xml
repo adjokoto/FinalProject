@@ -4,16 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="22677dc6-d394-4aa3-8757-8cd245aaba78" name="Changes" comment="" />
+=======
     <list default="true" id="b304ec06-6f97-4a2c-9585-8e8478b269de" name="Changes" comment="" />
+>>>>>>> origin
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+=======
+>>>>>>> origin
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+<<<<<<< HEAD
+        <option value="HTML File" />
+=======
+>>>>>>> origin
       </list>
     </option>
   </component>
@@ -23,13 +37,27 @@
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
+<<<<<<< HEAD
+  <component name="ProjectId" id="2bBWoxiTZ8ZLwXw6rDtz6Dk8AN9" />
+=======
   <component name="ProjectId" id="2bBJrWgo5cQiVzYC0h9uPxPU4p0" />
+>>>>>>> origin
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+<<<<<<< HEAD
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.FinalProject.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "git-widget-placeholder": "Branch__AD2",
+    "last_opened_file_path": "/Users/aleksandreadjokoto/MyOtherDir/FinalProject",
+=======
     "Django Server.Final Project.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -37,6 +65,7 @@
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/olutolaseebunlomo/Temp/FinalProject",
+>>>>>>> origin
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -46,6 +75,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+<<<<<<< HEAD
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Project_AstrAligned/templates/myapp" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="FinalProject" type="Python.DjangoServer" factoryName="Django server">
+=======
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="FinalProject" is-module-sdk="true">
@@ -56,6 +94,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Final Project" type="Python.DjangoServer" factoryName="Django server">
+>>>>>>> origin
       <module name="FinalProject" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -65,7 +104,11 @@
         <env name="DJANGO_SETTINGS_MODULE" value="Project_AstrAligned.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
+<<<<<<< HEAD
+      <option name="SDK_NAME" value="Python 3.12 (FinalProject)" />
+=======
       <option name="SDK_NAME" value="Python 3.11 (FinalProject)" />
+>>>>>>> origin
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -92,6 +135,15 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
+      <changelist id="22677dc6-d394-4aa3-8757-8cd245aaba78" name="Changes" comment="" />
+      <created>1705689130323</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705689130323</updated>
+      <workItem from="1705689131373" duration="17356000" />
+      <workItem from="1705768382935" duration="1982000" />
+=======
       <changelist id="b304ec06-6f97-4a2c-9585-8e8478b269de" name="Changes" comment="" />
       <created>1705682737959</created>
       <option name="number" value="Default" />
@@ -99,6 +151,7 @@
       <updated>1705682737959</updated>
       <workItem from="1705682739300" duration="5059000" />
       <workItem from="1705690279315" duration="8399000" />
+>>>>>>> origin
     </task>
     <servers />
   </component>

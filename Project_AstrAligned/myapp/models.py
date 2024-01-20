@@ -34,6 +34,7 @@ class Components(models.Model):
     # Class variable to store the count of component fields
     COMPONENT_FIELDS_COUNT = 4
 
+
 class Traits(models.Model):
     empathy = models.FloatField(default=0)
     resilience = models.FloatField(default=0)
@@ -53,3 +54,13 @@ class Traits(models.Model):
 
     # Class variable to store the count of trait fields
     TRAIT_FIELDS_COUNT = 11
+
+
+# models.py
+class StrengthWeakness(models.Model):
+    zodiac_sign = models.ForeignKey('ZodiacSign', on_delete=models.CASCADE)
+    strength = models.TextField()
+    weakness = models.TextField()
+
+    def __str__(self):
+        return f"{self.zodiac_sign.sign} - Strengths and Weaknesses"

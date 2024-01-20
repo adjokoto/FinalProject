@@ -34,6 +34,8 @@
 {% else %}
     <h3>No common traits found.</h3>
 {% endif %}
-
+    <br>
+    <a href="{% url 'zodiac_comparison' %}?sign_one={{ sign_one }}&sign_two={{ sign_two }}">Click to Learn More!
+    </a>
 </body>
 </html>
