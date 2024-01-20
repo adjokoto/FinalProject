@@ -49,7 +49,7 @@ def compare_traits(traits1, traits2):
             # print(field.name)
 
             # Check if the difference is less than or equal to 1
-            if abs(value1 - value2) <= 1:
+            if abs(value1 - value2) <= 2:
                 common_traits.append(field.name)
 
     return common_traits
