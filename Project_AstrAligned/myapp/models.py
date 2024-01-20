@@ -24,26 +24,32 @@ class Components(models.Model):
     element = models.CharField(max_length=15)
     polarity = models.CharField(max_length=15)
     modality = models.CharField(max_length=15)
-    ruling_house_one = models.CharField(max_length=15)
-    ruling_house_two = models.CharField(max_length=15)
+    ruling_planet_one = models.CharField(max_length=15)
+    ruling_planet_two = models.CharField(max_length=15)
     zodiac_sign = models.ForeignKey(
         ZodiacSign,
         on_delete=models.CASCADE,
     )
 
+    # Class variable to store the count of component fields
+    COMPONENT_FIELDS_COUNT = 4
+
 class Traits(models.Model):
-    Empathy = models.FloatField(default=0)
-    Resilience = models.FloatField(default=0)
-    Integrity = models.FloatField(default=0)
-    Adaptability = models.FloatField(default=0)
-    Open_mindedness = models.FloatField(default=0)
-    Responsibility = models.FloatField(default=0)
-    Confidence = models.FloatField(default=0)
-    Perseverance = models.FloatField(default=0)
-    Kindness = models.FloatField(default=0)
-    Curiosity = models.FloatField(default=0)
-    Loyalty = models.FloatField(default=0)
+    empathy = models.FloatField(default=0)
+    resilience = models.FloatField(default=0)
+    integrity = models.FloatField(default=0)
+    adaptability = models.FloatField(default=0)
+    open_mindedness = models.FloatField(default=0)
+    responsibility = models.FloatField(default=0)
+    confidence = models.FloatField(default=0)
+    perseverance = models.FloatField(default=0)
+    kindness = models.FloatField(default=0)
+    curiosity = models.FloatField(default=0)
+    loyalty = models.FloatField(default=0)
     zodiac_sign = models.ForeignKey(
         ZodiacSign,
         on_delete=models.CASCADE,
     )
+
+    # Class variable to store the count of trait fields
+    TRAIT_FIELDS_COUNT = 11

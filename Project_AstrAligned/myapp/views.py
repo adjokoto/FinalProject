@@ -1,10 +1,9 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from django.urls import reverse
 
 from . import models
-
+from .utils import *
 
 # Create your views here.
 
@@ -19,8 +18,11 @@ def register(request):
     form = UserCreationForm(request.POST)
     if form.is_valid():
         new_user = form.save()
-        dob = request.POST('dob')
-        acct_holder = models.AccountHolder(
+        print(request)
+        dob = request.POST["dob"]
+        print("dob")
+        print(dob)
+        acct_holder = AccountHolder(
             user=new_user,
             date_of_birth=dob,
         )
@@ -34,5 +36,19 @@ def register(request):
             "myapp/register.html",
             context,
         )
+def compatability_view(request):
+    if request.method == 'POST':
+        sign_one = request.POST.get('sign1')
+        sign_two = request.POST.get('sign2')
+        compatability_result = compare_signs(sign_one, sign_two)
+        return render(request,
+                      "myapp/results.html", context=compatability_result)
 
+# def trait_compat_view(request):
+#     if request.method == 'POST':
+#         sign_one = request.POST.get('sign1')
+#         sign_two = request.POST.get('sign2')
+#         trait_result = compare_sign_traits(sign_one, sign_two)
+#         return render(request,
+#                       "myapp/results.html", context=trait_result)
 
