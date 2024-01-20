@@ -4,16 +4,40 @@
         <meta charset="UTF-8">
         <title>Title</title>
     </head>
+
+{%  block content %}
+
 <body>
     <h3>Create an Account</h3>
     <h2>Register</h2>
+
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         Please enter your date of birth:
-        <input type="date" name="dob" >
+        <input
+                type="date"
+                name="dob"
+        >
         <br>
         <button type="submit">Register</button>
     </form>
+
+{% endblock %}
+
+
+{#{%  block js %}#}
+{#    <script>#}
+{#        function checkValue() {#}
+{#            var e = document.getElementById('date');#}
+{#            console.log(e);#}
+{#            if (parseInt(e.value) < 0) {#}
+{#                alert('Balance too low!');#}
+{#            }#}
+{#        }#}
+{#    </script>#}
+{#    #}
+{#{% endblock %}#}
+
 </body>
 </html>
