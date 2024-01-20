@@ -20,7 +20,19 @@
         {% endfor %}
     </ul>
 {% else %}
-    <p>No common traits found.</p>
+    <h3>No common components found.</h3>
+{% endif %}
+
+{% if common_traits %}
+    <h2>Trait Compatibility: {{ trait_match }}%</h2>
+    <h3>Common Traits:</h3>
+    <ul>
+        {% for trait in common_traits %}
+            <li>{{ trait }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>No common traits found.</h3>
 {% endif %}
 
 </body>
