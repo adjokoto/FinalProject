@@ -1,7 +1,9 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import redirect
 from django.urls import reverse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth.forms import AuthenticationForm
 
 from . import models
 from .utils import *
@@ -28,14 +30,7 @@ def register(request):
             )
             acct_holder.save()
 
-            # Authenticiate and login user
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=raw_password)
-            if user is not None:
-                login(request, user)
-
-            return HttpResponseRedirect(reverse('home'))
+            return HttpResponseRedirect(reverse('login'))
         else:
             # Add error messages to context
             error_messages = form.errors
@@ -44,6 +39,32 @@ def register(request):
         form = UserCreationForm()
     context['form'] = form
     return render(request, 'myapp/register.html', context)
+
+def login(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('home'))
+
+    context = {}
+    if request.method == 'POST':
+        form = AuthenticationForm(request, request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                auth_login(request, user)
+                return HttpResponseRedirect(reverse('home'))
+            else:
+                context['error'] = "Invalid username or password."
+        else:
+            context['form_errors'] = form.errors
+    else:
+        form = AuthenticationForm(request)
+
+    context['form'] = form
+    return render(request, 'myapp/login.html', context)
+
+
 
 def compatability_view(request):
     if request.method == 'POST':
