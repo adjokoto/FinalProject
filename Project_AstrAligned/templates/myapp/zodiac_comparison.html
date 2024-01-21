@@ -3,22 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>AstroAligned</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap'); /* Importing a decorative font */
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff3f8; /* Light pink background */
+        }
+
+        h2 {
+            color: #d63384; /* Pink text for heading */
+        }
+
+        table {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            font-family: 'Tangerine', cursive; /* Decorative font for table header */
+            font-size: 36px; /* Larger font size for drama */
+            background-color: #f0e6f6; /* Light fairy-tale purple background */
+            color: #5d3a9b; /* Deep purple text */
+        }
+
+        .strengths {
+            background-color: #ffd1dc; /* Light pink for strengths */
+            color: #d63384; /* Darker pink/red text */
+        }
+
+        .weaknesses {
+            background-color: #2c2c54; /* Dark purple for weaknesses */
+            color: #d3d3d3; /* Light gray text */
+        }
+
+        .strengths:before {
+            content: "🌈 "; /* Rainbow emoji for strengths */
+        }
+
+        .weaknesses:before {
+            content: "🌧️ "; /* Cloud with rain emoji for weaknesses */
+        }
+    </style>
 </head>
 <body>
     <!-- zodiac_comparison.html -->
     <h2>Strengths and Weaknesses Comparison</h2>
     <table>
         <tr>
-            <th>{{ sign1.sign }}</th>
-            <th>{{ sign2.sign }}</th>
+            <th>{{ sign1 }}</th>
+            <th>{{ sign2 }}</th>
         </tr>
         <tr>
-            <td>Strengths: {{ strengths_weaknesses_sign1.strength }}</td>
-            <td>Strengths: {{ strengths_weaknesses_sign2.strength }}</td>
+            <td class="strengths">Strengths: {{ strengths_weaknesses_sign1.strength }}</td>
+            <td class="strengths">Strengths: {{ strengths_weaknesses_sign2.strength }}</td>
         </tr>
         <tr>
-            <td>Weaknesses: {{ strengths_weaknesses_sign1.weakness }}</td>
-            <td>Weaknesses: {{ strengths_weaknesses_sign2.weakness }}</td>
+            <td class="weaknesses">Weaknesses: {{ strengths_weaknesses_sign1.weakness }}</td>
+            <td class="weaknesses">Weaknesses: {{ strengths_weaknesses_sign2.weakness }}</td>
         </tr>
     </table>
 

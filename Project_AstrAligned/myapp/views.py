@@ -77,13 +77,6 @@ def results(request):
         return render(request,
                       "myapp/results.html", context=compatability_result)
 
-
-# views.py
-
-
-# views.py
-
-
 def zodiac_comparison(request):
     # if request.method == 'POST':
     #     # Retrieve values for sign1 and sign2 from the POST parameters
@@ -96,7 +89,6 @@ def zodiac_comparison(request):
 
     sign1 = request.GET.get('sign_one')
     sign2 = request.GET.get('sign_two')
-    print(sign1, sign2)
 
 #     # Get the StrengthWeakness objects for each sign
     strengths_weaknesses_sign1 = StrengthWeakness.objects.filter(zodiac_sign__sign=sign1).first()
