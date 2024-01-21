@@ -66,7 +66,7 @@ def login(request):
 
 
 
-def compatability_view(request):
+def results(request):
     if request.method == 'POST':
         sign_one = request.POST.get('sign1')
         sign_two = request.POST.get('sign2')

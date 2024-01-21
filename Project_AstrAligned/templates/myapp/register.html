@@ -1,29 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-{%  block content %}
+        .container {
+            width: 300px;
+            margin: auto;
+            padding-top: 50px;
+        }
 
+        h2, h3 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="password"], input[type="date"], button {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
 <body>
-    <h3>Create an Account</h3>
-    <h2>Register</h2>
+    <div class="container">
+        <h3>Create an Account</h3>
+        <h2>Register</h2>
 
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        Please enter your date of birth:
-        <input
-                type="date"
-                name="dob"
-        >
-        <br>
-        <button type="submit">Register</button>
-    </form>
-
-{% endblock %}
-
+        <form action="" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <div class="form-group">
+                <label for="dob">Please enter your date of birth:</label>
+                <input type="date" name="dob" id="dob">
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
 </body>
 </html>
