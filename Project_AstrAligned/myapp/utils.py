@@ -69,9 +69,9 @@ def compare_signs(sign_one, sign_two):
 
     return {
         'common_components': common_components,
-        'component_match': component_match,
+        'component_match': round(component_match, 2),
         'common_traits': common_traits,
-        'trait_match': trait_match,
+        'trait_match': round(trait_match, 2),
         'sign_one': sign_one,
         'sign_two': sign_two
     }
