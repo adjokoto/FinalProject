@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        /* Your existing CSS styles */
+        .container {
+            width: 300px;
+            margin: auto;
+            padding-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="password"], input[type="submit"], .register-button {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px; /* Space between elements */
+        }
+
+        input[type="submit"], .register-button {
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover, .register-button:hover {
+            background-color: #4cae4c;
+        }
+
+        .register-button {
+            background-color: #337ab7;
+            border: none;
+        }
+
+        .register-button:hover {
+            background-color: #286090;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            {% if form_errors %}
+                <div class="error">
+                    {% for field, errors in form_errors.items %}
+                        {% for error in errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <input type="submit" value="Login">
+            <!-- Button to route to the register page -->
+            <button type="button" onclick="location.href='{% url 'register' %}'" class="register-button">Create New User</button>
+        </form>
+    </div>
+</body>
+</html>

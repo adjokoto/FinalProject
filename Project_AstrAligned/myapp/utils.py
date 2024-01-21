@@ -40,16 +40,11 @@ def compare_traits(traits1, traits2):
         raise ValueError("Both arguments must be instances of Traits")
 
     for field in Traits._meta.get_fields():
-        # Ensure the field is a FloatField and not a ForeignKey
         if isinstance(field, models.FloatField):
-            # Get the value of the field for both instances
             value1 = getattr(traits1, field.name, 0)
             value2 = getattr(traits2, field.name, 0)
-            # print(field)
-            # print(field.name)
 
-            # Check if the difference is less than or equal to 1
-            if abs(value1 - value2) <= 1:
+            if abs(value1 - value2) <= 2:
                 common_traits.append(field.name)
 
     return common_traits
@@ -57,25 +52,18 @@ def compare_traits(traits1, traits2):
 
 def compare_signs(sign_one, sign_two):
 
-    # Get components and traits for both signs
     components1 = Components.objects.filter(zodiac_sign__sign=sign_one.lower())[0]
     components2 = Components.objects.filter(zodiac_sign__sign=sign_two.lower())[0]
 
     traits1 = Traits.objects.filter(zodiac_sign__sign=sign_one.lower())[0]
     traits2 = Traits.objects.filter(zodiac_sign__sign=sign_two.lower())[0]
 
-    # Find common components and traits for both signs
-    # common_components = components1.intersection(components2)
     common_components = compare_components(components1,components2)
     common_traits = compare_traits(traits1, traits2)
 
-    # Pull totals
-    # total_components = components1.union(components2)
     total_components = Components.COMPONENT_FIELDS_COUNT
     total_traits = Traits.TRAIT_FIELDS_COUNT
 
-
-    # Calculate the match percentage
     component_match = (len(common_components) / total_components) * 100
     trait_match = (len(common_traits) / total_traits) * 100
 

@@ -1,39 +1,61 @@
-<!-- templates/myapp/results.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff3f8; /* Light pink background */
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #d63384; /* Pink text for headings */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #fde4ef; /* Very light pink for list items */
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Your Compatability Results</h1>
+    <h1>Your Compatibility Results</h1>
 
-{% if common_components %}
-    <h2>Component Compatibility: {{ component_match }}%</h2>
-    <h3>Common Components:</h3>
-    <ul>
-        {% for component in common_components %}
-            <li>{{ component }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <h3>No common components found.</h3>
-{% endif %}
+    {% if common_components %}
+        <h2>Component Compatibility: {{ component_match }}%</h2>
+        <h3>Common Components:</h3>
+        <ul>
+            {% for component in common_components %}
+                <li>{{ component }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>No common components found.</h3>
+    {% endif %}
 
-{% if common_traits %}
-    <h2>Trait Compatibility: {{ trait_match }}%</h2>
-    <h3>Common Traits:</h3>
-    <ul>
-        {% for trait in common_traits %}
-            <li>{{ trait }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <h3>No common traits found.</h3>
-{% endif %}
+    {% if common_traits %}
+        <h2>Trait Compatibility: {{ trait_match }}%</h2>
+        <h3>Common Traits:</h3>
+        <ul>
+            {% for trait in common_traits %}
+                <li>{{ trait }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>No common traits found.</h3>
+    {% endif %}
     <br>
     <a href="{% url 'zodiac_comparison' %}?sign_one={{ sign_one }}&sign_two={{ sign_two }}">Click to Learn More!
     </a>
