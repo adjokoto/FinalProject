@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
-from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 from . import models
 from .utils import *
@@ -16,33 +16,34 @@ def home(request):
 
 # Create your views here.
 def register(request):
-    context = dict()
-    form = UserCreationForm(request.POST)
-    error_messages = {}
-    if form.is_valid():
-        new_user = form.save()
-        dob = request.POST["dob"]
-        acct_holder = AccountHolder(
-            user=new_user,
-            date_of_birth=dob,
-        )
-        acct_holder.save()
-        return HttpResponseRedirect(reverse('home'))
+    context = {}
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            dob = request.POST["dob"]
+            acct_holder = AccountHolder(
+                user=new_user,
+                date_of_birth=dob,
+            )
+            acct_holder.save()
+
+            # Authenticiate and login user
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=raw_password)
+            if user is not None:
+                login(request, user)
+
+            return HttpResponseRedirect(reverse('home'))
+        else:
+            # Add error messages to context
+            error_messages = form.errors
+            context['error_messages'] = error_messages
     else:
         form = UserCreationForm()
-        context['form'] = form
-        for field, errors, in form.errors.items():
-            # error_messages[field] = error
-            # messages.error(request, f"{field}: {error}")
-            error_messages[field] = errors
-        messages.error(request, 'Error in user registration. Please check the form details and try again!')
-        return render(
-            request,
-            "myapp/register.html",
-            {"form": form, "error_messages": error_messages}
-            # context,
-        )
-
+    context['form'] = form
+    return render(request, 'myapp/register.html', context)
 
 def compatability_view(request):
     if request.method == 'POST':
